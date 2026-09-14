@@ -1,0 +1,18 @@
+# Reference model configuration for the NODE AR baseline.
+# Training configs embed this same block; this file documents the knobs.
+model:
+  encoder_name: resnet18
+  out_indices: [2, 3, 4]
+  dim: 256
+  nhead: 8
+  ar_layers: 4
+  label_layers: 2
+  dropout: 0.1
+  max_len: 4096
+  label_max_len: 64
+  roi: 7
+  roi_radius: 0.08
+  pretrained: false
+  freeze_encoder: false
+  coord_bins: 64
+  bond_len_est: 0.12

@@ -1,0 +1,34 @@
+# Tiny CPU debug run: overfit / smoke-test the full pipeline in seconds.
+model:
+  encoder_name: resnet18
+  out_indices: [3, 4]
+  dim: 64
+  nhead: 4
+  ar_layers: 1
+  label_layers: 1
+  dropout: 0.0
+  pretrained: false
+
+data:
+  train_shards:
+    - data/rendered/train/shard_*.tar
+  valid_shards:
+    - data/rendered/valid/shard_*.tar
+  image_size: 128
+  q_capacity: 64
+  t_capacity: 24
+  l_capacity: 1024
+
+train:
+  batch_size: 2
+  epochs: 1
+  lr: 1.0e-3
+  weight_decay: 0.0
+  grad_clip: 5.0
+  seed: 0
+  num_workers: 0
+  limit: 4
+  stage: 2
+  teacher_forcing_epochs: 0
+  output_dir: runs/node_ar_debug
+  device: cpu

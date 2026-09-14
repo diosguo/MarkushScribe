@@ -1,0 +1,48 @@
+# Stage 1: plain OCSR visual adaptation on data/plain_rendered (freeze encoder).
+# Switch encoder_name to a timm Swin and pretrained: true for the real GPU run.
+model:
+  encoder_name: resnet18
+  out_indices: [2, 3, 4]
+  dim: 128
+  nhead: 4
+  ar_layers: 3
+  label_layers: 2
+  dropout: 0.1
+  pretrained: false
+  freeze_encoder: true
+
+data:
+  train_shards:
+    - data/plain_rendered/train/shard_*.tar
+  valid_shards:
+    - data/plain_rendered/valid/shard_*.tar
+  image_size: 256
+  q_capacity: 96
+  t_capacity: 24
+
+train:
+  batch_size: 8
+  epochs: 30
+  lr: 3.0e-4
+  weight_decay: 0.01
+  grad_clip: 5.0
+  seed: 0
+  num_workers: 0
+  stage: 1
+  freeze_encoder: true
+  teacher_forcing_epochs: 0
+  output_dir: runs/node_ar_stage1
+  log_every: 10
+  checkpoint_every: 1
+  device: cpu
+
+loss_weights:
+  token: 1.0
+  label: 1.0
+  kind: 1.0
+  coord_l1: 1.0
+  adjacency: 1.0
+  order: 1.0
+  depiction: 1.0
+  wedge: 1.0
+  wedge_sym: 0.5

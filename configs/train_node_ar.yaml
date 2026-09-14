@@ -1,0 +1,47 @@
+# NODE AR baseline training (synthetic Markush, Stage 2).
+model:
+  encoder_name: resnet18
+  out_indices: [2, 3, 4]
+  dim: 256
+  nhead: 8
+  ar_layers: 4
+  label_layers: 2
+  dropout: 0.1
+  image_size: 384
+  pretrained: false
+
+data:
+  train_shards:
+    - data/rendered/train/shard_*.tar
+  valid_shards:
+    - data/rendered/valid/shard_*.tar
+  image_size: 384
+  q_capacity: 128
+  t_capacity: 32
+
+train:
+  batch_size: 4
+  epochs: 20
+  lr: 3.0e-4
+  weight_decay: 0.01
+  grad_clip: 5.0
+  seed: 0
+  num_workers: 0
+  stage: 2
+  freeze_encoder: false
+  teacher_forcing_epochs: 0
+  output_dir: runs/node_ar
+  log_every: 10
+  checkpoint_every: 1
+  device: cpu
+
+loss_weights:
+  token: 1.0
+  label: 1.0
+  kind: 1.0
+  coord_l1: 1.0
+  adjacency: 1.0
+  order: 1.0
+  depiction: 1.0
+  wedge: 1.0
+  wedge_sym: 0.5

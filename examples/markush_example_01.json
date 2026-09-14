@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "source_image": "examples/markush_example_01.png",
+    "image_size": [2406, 1464],
+    "coordinate_system": "normalized [0,1], origin top-left, y increases downward",
+    "status": "draft_first_pass_ai_assisted",
+    "annotation_tool": "opencode multimodal reading + manual grid overlay",
+    "bond_type_convention": "ring-internal bonds collapsed to 'aromatic'; linker/substituent bonds are 'single'",
+    "extensions": ["variable_type", "multiplicity"],
+    "unknowns": [
+      "variable_def (allowed value sets) for M/L/A/B and rgroup nodes - requires patent text",
+      "rgroup_definitions - requires patent text"
+    ],
+    "notes": [
+      "A and B are placeholder rings drawn as circles (ring-level variables), not explicit atoms.",
+      "M1-M4 are ring-atom variables; L, L1, L2 are linker variables.",
+      "R7/R8 carry multiplicity subscripts m/n (variable substitution count).",
+      "Coordinates are approximate and intended for topology/R-group validation first."
+    ]
+  },
+  "nodes": [
+    {"id": 0, "kind": "atom", "symbol": "N", "x": 0.1309, "y": 0.1605},
+    {"id": 1, "kind": "atom", "symbol": "NH", "x": 0.0727, "y": 0.2561},
+    {"id": 2, "kind": "atom", "symbol": "C", "x": 0.1995, "y": 0.2288},
+    {"id": 3, "kind": "variable", "symbol": "M1", "variable_type": "ring_atom", "x": 0.1849, "y": 0.3279, "variable_def": null},
+    {"id": 4, "kind": "atom", "symbol": "C", "x": 0.1309, "y": 0.3791},
+    {"id": 5, "kind": "rgroup", "symbol": "R4", "x": 0.1122, "y": 0.4918, "variable_def": null},
+    {"id": 6, "kind": "variable", "symbol": "L1", "variable_type": "linker", "x": 0.2743, "y": 0.2015, "variable_def": null},
+    {"id": 7, "kind": "atom", "symbol": "C", "x": 0.3886, "y": 0.1298},
+    {"id": 8, "kind": "rgroup", "symbol": "R5", "x": 0.4011, "y": 0.0581, "variable_def": null},
+    {"id": 9, "kind": "atom", "symbol": "C", "x": 0.3304, "y": 0.2357},
+    {"id": 10, "kind": "variable", "symbol": "M4", "variable_type": "ring_atom", "x": 0.4489, "y": 0.2254, "variable_def": null},
+    {"id": 11, "kind": "variable", "symbol": "L2", "variable_type": "linker", "x": 0.5258, "y": 0.2049, "variable_def": null},
+    {"id": 12, "kind": "variable", "symbol": "M3", "variable_type": "ring_atom", "x": 0.4510, "y": 0.3245, "variable_def": null},
+    {"id": 13, "kind": "atom", "symbol": "C", "x": 0.3741, "y": 0.3928},
+    {"id": 14, "kind": "variable", "symbol": "M2", "variable_type": "ring_atom", "x": 0.3346, "y": 0.3108, "variable_def": null},
+    {"id": 15, "kind": "variable", "symbol": "L", "variable_type": "linker", "x": 0.3865, "y": 0.5396, "variable_def": null},
+    {"id": 16, "kind": "variable", "symbol": "A", "variable_type": "ring", "x": 0.2681, "y": 0.6148, "variable_def": null},
+    {"id": 17, "kind": "rgroup", "symbol": "R7", "x": 0.2868, "y": 0.8094, "multiplicity": "m", "variable_def": null},
+    {"id": 18, "kind": "variable", "symbol": "B", "variable_type": "ring", "x": 0.7939, "y": 0.1878, "variable_def": null},
+    {"id": 19, "kind": "rgroup", "symbol": "R8", "x": 0.9185, "y": 0.1913, "multiplicity": "n", "variable_def": null}
+  ],
+  "edges": [
+    {"source": 0, "target": 1, "bond_type": "single", "variable": false},
+    {"source": 0, "target": 2, "bond_type": "aromatic", "variable": false},
+    {"source": 1, "target": 4, "bond_type": "single", "variable": false},
+    {"source": 2, "target": 3, "bond_type": "single", "variable": false},
+    {"source": 2, "target": 6, "bond_type": "single", "variable": false},
+    {"source": 3, "target": 4, "bond_type": "aromatic", "variable": false},
+    {"source": 4, "target": 5, "bond_type": "single", "variable": false},
+    {"source": 6, "target": 9, "bond_type": "single", "variable": false},
+    {"source": 7, "target": 8, "bond_type": "single", "variable": false},
+    {"source": 7, "target": 9, "bond_type": "aromatic", "variable": false},
+    {"source": 7, "target": 10, "bond_type": "aromatic", "variable": false},
+    {"source": 9, "target": 14, "bond_type": "aromatic", "variable": false},
+    {"source": 10, "target": 11, "bond_type": "single", "variable": false},
+    {"source": 10, "target": 12, "bond_type": "aromatic", "variable": false},
+    {"source": 11, "target": 18, "bond_type": "single", "variable": false},
+    {"source": 12, "target": 13, "bond_type": "aromatic", "variable": false},
+    {"source": 13, "target": 14, "bond_type": "aromatic", "variable": false},
+    {"source": 13, "target": 15, "bond_type": "single", "variable": false},
+    {"source": 15, "target": 16, "bond_type": "single", "variable": false},
+    {"source": 16, "target": 17, "bond_type": "single", "variable": false},
+    {"source": 18, "target": 19, "bond_type": "single", "variable": false}
+  ],
+  "rgroup_definitions": {}
+}

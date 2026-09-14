@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- MarkushScribe project-specific ---
+
+# Local virtual environments
+.venv/
+.venv-*/
+
+# macOS
+.DS_Store
+
+# Large or generated artifacts (regenerate with tools/, see AGENTS.md)
+data/
+runs/
+ckpts/
+
+# Upstream reference implementation (clone separately, see AGENTS.md)
+MolScribe/
